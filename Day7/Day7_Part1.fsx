@@ -71,7 +71,7 @@ let orderBids bids =
     |> Seq.collect (fun b -> b)
     |> debug
 
-let input =
+let solve =
     System.IO.Path.Combine(__SOURCE_DIRECTORY__, "input.txt")
     |> System.IO.File.ReadAllLines
     |> Array.map (fun l -> l.Split(' '))
@@ -82,4 +82,4 @@ let input =
     |> Seq.fold (fun acc (i, bid) -> (acc + i * bid.Value) |> uint64) 0UL
     |> printfn "%A"
 
-input
+solve
